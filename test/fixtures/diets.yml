@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  date: 2017-03-08 13:48:45
+  weight: 1
+  moderation1: false
+  moderation2: false
+  moderation3: false
+  option1: false
+  option2: false
+  water1: false
+  water2: false
+  water3: false
+  water4: false
+
+two:
+  user_id: 1
+  date: 2017-03-08 13:48:45
+  weight: 1
+  moderation1: false
+  moderation2: false
+  moderation3: false
+  option1: false
+  option2: false
+  water1: false
+  water2: false
+  water3: false
+  water4: false

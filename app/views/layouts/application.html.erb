@@ -18,24 +18,25 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="http://mobiusfit.com">Mobius Fit</a>
+          <a class="navbar-brand" href="http://mobiusfit.com">
+            <img class="mobius-image" alt="Brand" src="http://mobiusfit.com/wp-content/uploads/2015/11/Mobius-Fit-Logo-Sky-Blue2112.png">
+          </a>
+          <a class="navbar-brand" href="/">Mobi-Lean</a>
         </div>
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">Link</a></li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Diet <span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><a href="/diets">Information</a></li>
-                <li><a href="#">Log your diet</a></li>
-              </ul>
-            </li>
+            <li class="nav-link"><a href="#">User Page</a></li>
+            <li><hr></li>
+            <li class="nav-link"><a href="/diets">Diet Information</a></li>
+            <li class="nav-link"><a href="/diets/new">Log Your Diet</a></li>
           </ul>
         </div>
       </div>
     </nav>
 
-    <%= yield %>
+    <div class="body-container">
+      <%= yield %>
+    </div>
   </body>
 </html>

@@ -15,7 +15,7 @@ class DietsController < ApplicationController
   def cheat
   end
 
-  def other_options
+  def plans
   end
 
   def new
@@ -23,6 +23,7 @@ class DietsController < ApplicationController
   end
 
   def create
+    diet = Diet.new(user_id: 1, date: Time.now, weight: params['weight'], moderation1: params['mod1'], moderation2: params['mod2'],  moderation3: params['mod3'], option1: params['opt1'], option2: params['opt2'], water1: params['wat1'], water2: params['wat2'], water3: params['wat3'], water4: params['wat4'])
   end
 
   def show

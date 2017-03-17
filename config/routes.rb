@@ -7,6 +7,6 @@ Rails.application.routes.draw do
   get '/diets/moderation', to: 'diets#moderation'
   get '/diets/options', to: 'diets#options'
   get '/diets/cheat', to: 'diets#cheat'
-  get '/diets/other_options', to: 'diets#other_options'
+  get '/diets/plans', to: 'diets#plans'
   resources :diets
 end

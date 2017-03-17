@@ -2,6 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+//navbar
 @media (min-width: 100px) {
   .navbar-header {
       float: none;
@@ -45,13 +46,69 @@
   text-align: right;
 }
 
-
+//body
 .body-container {
   padding-left: 7%;
   padding-right: 7%;
   padding-top: 2%;
 }
 
+//custom theme
 .page-header {
   text-align: center;
 }
+
+p {
+  line-height: 25px;
+}
+
+.light-section {
+  margin-bottom: 15px;
+  h2 {
+    color: #00ccff;
+  }
+  p {
+    font-size: 13px;
+  }
+}
+
+.dark-section {
+  background-color: black;
+  margin-bottom: 15px;
+  h2 {
+    color: #00ccff;
+  }
+  p {
+    font-size: 13px;
+    color: #ffffff;
+  }
+  a {
+    color: #00ccff;
+  }
+  a:hover {
+    color: #00ccff;
+  }
+}
+.info-para {
+  line-height: 50px;
+  text-indent: 50px;
+}
+
+.testimonial-image1 {
+  height: 250px;
+  float: left;
+}
+.testimonial-image2 {
+  height: 250px;
+  float: left;
+  margin-right: 60px;
+}
+
+.testimonial {
+  vertical-align: center;
+}
+
+
+
+
+

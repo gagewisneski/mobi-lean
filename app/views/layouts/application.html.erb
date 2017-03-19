@@ -9,7 +9,7 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-default">
+    <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container-fluid">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -27,7 +27,6 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
             <li class="nav-link"><a href="#">User Page</a></li>
-            <li><hr></li>
             <li class="nav-link"><a href="/diets">Diet Information</a></li>
             <li class="nav-link"><a href="/diets/new">Log Your Diet</a></li>
           </ul>
@@ -38,5 +37,18 @@
     <div class="body-container">
       <%= yield %>
     </div>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-6 footer-content">
+            <h5><a class="dark-link" href="http://mobiusfit.com">Mobius Fit</a></h5>
+          </div>
+          <div class="col-xs-6 footer-content">
+            <h5><a class="dark-link" href="/">Mobi-Lean</a></h5>
+          </div>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

@@ -10,7 +10,15 @@
   text-align: right;
 }
 
+.flash-message {
+  margin-top: 0px;
+}
+
 //body
+
+html, body {
+  height: 100%;
+}
 .body-container {
   padding-left: 7%;
   padding-right: 7%;

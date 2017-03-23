@@ -1,4 +1,6 @@
 class DietsController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     # here is the information on the diet
   end
@@ -16,6 +18,9 @@ class DietsController < ApplicationController
   end
 
   def plans
+  end
+
+  def mobi_meals
   end
 
   def new

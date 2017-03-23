@@ -26,29 +26,43 @@
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
-            <li class="nav-link"><a href="#">User Page</a></li>
-            <li class="nav-link"><a href="/diets">Diet Information</a></li>
-            <li class="nav-link"><a href="/diets/new">Log Your Diet</a></li>
+            <% unless current_user %>
+              <li><a class="nav-link" href="/signup">Signup</a></li>
+              <li><a class="nav-link" href="/login">Login</a></li>
+            <% else %>
+              <li class="nav-link"><a href="/diets/mobi_meals">Mobi-Meals</a></li>
+              <li class="nav-link"><a href="#">User Page</a></li>
+              <li class="nav-link"><a href="/diets">Diet Information</a></li>
+              <li class="nav-link"><a href="/diets/new">Log Your Diet</a></li>
+              <li><%= link_to "Log out", "/logout", class:"nav-link", method: :delete %></li>
+            <% end %>
           </ul>
         </div>
       </div>
     </nav>
 
+    <div class="container flash-message">
+      <% flash.each do |name, message| %>
+        <div class="alert alert-<%= name %> alert-dismissible" role="alert">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><%= message.html_safe %>
+        </div>
+      <% end %>
+    </div>
+
     <div class="body-container">
       <%= yield %>
     </div>
 
-    <footer class="footer">
+<!--     <footer class="footer">
       <div class="container">
-        <div class="row">
-          <div class="col-xs-6 footer-content">
-            <h5><a class="dark-link" href="http://mobiusfit.com">Mobius Fit</a></h5>
-          </div>
-          <div class="col-xs-6 footer-content">
-            <h5><a class="dark-link" href="/">Mobi-Lean</a></h5>
-          </div>
+        <div class="col-xs-6 footer-content">
+          <h5><a class="dark-link" href="http://mobiusfit.com">Mobius Fit</a></h5>
+        </div>
+        <div class="col-xs-6 footer-content">
+          <h5><a class="dark-link" href="/">Mobi-Lean</a></h5>
         </div>
       </div>
-    </footer>
+    </footer> -->
+
   </body>
 </html>

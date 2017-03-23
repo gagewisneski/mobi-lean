@@ -1,0 +1,18 @@
+<%= form_tag "/users", class:"intro-form", method: :post do %>
+  <h3 class="text-center"> Signup </h3>
+  <div class="form-group">
+    <%= text_field_tag :name, nil, placeholder:"Name", class:"form-control" %>
+  </div>
+  <div class="form-group">
+    <%= text_field_tag :email, nil, placeholder:"Email", class:"form-control" %>
+  </div>
+  <div class="form-group">
+    <%= password_field_tag :password, nil, placeholder:"Password", class:"form-control" %>
+  </div>
+  <div class="form-group">
+    <%= password_field_tag :password_confirmation, nil, placeholder:"Password Confirmation", class:"form-control" %>
+  </div>
+  <div class="form-group text-center">
+    <%= submit_tag "Signup", class:"btn btn-success" %>
+  </div>
+<% end %>

@@ -95,10 +95,11 @@
   <div class="container">
     <div class="col-md-6 col-md-offset-3 col-sm-12">
       <h2>Upcoming Programs</h2>
-      <ul>
-        <div class="well"><li><h3>March... - April...<a class="btn btn-primary signup-btn" href="/signup/:program_id">Signup</a></h3></li></div>
-        <div class="well"><li><h3>April... - May...<a class="btn btn-primary signup-btn" href="/signup/:program_id">Signup</a></h3></li></div>
-      </ul>
+
+      <% @programs.each do |program| %>
+        <div class="well"><h3><%=program.strf_dates%><a class="btn btn-primary signup-btn1" href="/users/new">Signup</a></h3></div>
+      <% end %>
+
     </div>
   </div>
 </div>

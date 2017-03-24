@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   def index
     # home page explaining the program and getting users to sign up
+    @programs = Program.all.order(:id)
   end
 
   def show
@@ -8,11 +9,13 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+    @programs = Program.all
   end
 
   def create
-    @user = User.new(name: params[:name], email: params[:email], password: params[:password], password_confirmation: params[:password_confirmation])
+    # program = params[:program][:id]
     if params[:email] == params[:email_again]
+      @user = User.new(user_params)
       if @user.save
         session[:user_id] = @user.id
         flash[:success] = 'You have successfully signed up!'
@@ -26,5 +29,11 @@ class UsersController < ApplicationController
       flash[:warning] = 'You entered two different emails'
       render :new
     end
+  end
+
+  private
+
+  def user_params
+    params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :program_id)
   end
 end

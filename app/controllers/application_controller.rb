@@ -12,4 +12,11 @@ class ApplicationController < ActionController::Base
       redirect_to '/login'
     end
   end
+
+  def signed_in?
+    if current_user
+      flash[:warning] = 'You are already signed in!'
+      redirect_to '/'
+    end
+  end
 end

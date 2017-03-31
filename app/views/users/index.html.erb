@@ -97,7 +97,10 @@
       <h2>Upcoming Programs</h2>
 
       <% @programs.each do |program| %>
-        <div class="well"><h3><%=program.strf_dates%><a class="btn btn-primary signup-btn1" href="/users/new">Signup</a></h3></div>
+        <div class="well"><h3><%=program.strf_dates%>
+        <% unless current_user %>
+          <a class="btn btn-primary signup-btn1" href="/users/new">Signup</a>
+        <% end %></h3></div>
       <% end %>
 
     </div>

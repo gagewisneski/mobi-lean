@@ -28,7 +28,18 @@ class DietsController < ApplicationController
   end
 
   def create
-    diet = Diet.new(user_id: current_user.id, date: Time.now, weight: params['weight'], moderation1: params['mod1'], moderation2: params['mod2'],  moderation3: params['mod3'], option1: params['opt1'], option2: params['opt2'], water1: params['wat1'], water2: params['wat2'], water3: params['wat3'], water4: params['wat4'])
+    # @diet = Diet.new(user_id: current_user.id,
+    #                  date: Time.now,
+    #                  weight: params['weight'],
+    #                  moderation1: params['mod1'],
+    #                  moderation2: params['mod2'],
+    #                  moderation3: params['mod3'],
+    #                  option1: params['opt1'],
+    #                  option2: params['opt2'],
+    #                  water1: params['wat1'],
+    #                  water2: params['wat2'],
+    #                  water3: params['wat3'],
+    #                  water4: params['wat4'])
   end
 
   def show
@@ -37,8 +48,16 @@ class DietsController < ApplicationController
 
   def edit
     # edit your daily log
+    @users = User.find(current_user.id)
+    @moderations = [0, 1, 2, 3]
+    @options = [0, 1, 2]
+    @chocolate_bar = [0, 1]
   end
 
   def update
+  end
+
+  def diets
+    @diets = Diet.where(user_id: current_user.id).order(:day)
   end
 end

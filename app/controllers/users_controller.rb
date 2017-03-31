@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :signed_in?, only: [:new, :ceate]
+
   def index
     # home page explaining the program and getting users to sign up
     @programs = Program.all.order(:id)
@@ -13,11 +15,16 @@ class UsersController < ApplicationController
   end
 
   def create
-    # program = params[:program][:id]
+    @programs = Program.all
     if params[:email] == params[:email_again]
       @user = User.new(user_params)
       if @user.save
         session[:user_id] = @user.id
+        count = 1
+        20.times do
+          Diet.create(day: count, user_id: @user.id)
+          count += 1
+        end
         flash[:success] = 'You have successfully signed up!'
         redirect_to '/'
       else

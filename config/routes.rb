@@ -12,5 +12,7 @@ Rails.application.routes.draw do
   get '/diets/cheat', to: 'diets#cheat'
   get '/diets/plans', to: 'diets#plans'
   get '/diets/mobi_meals', to: 'diets#mobi_meals'
+  get '/diets/diets', to: 'diets#diets'
+  get '/diets/edit', to: 'diets#edit'
   resources :diets
 end

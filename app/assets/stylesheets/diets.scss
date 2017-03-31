@@ -30,3 +30,48 @@
 .fruit-berry {
   width: 80%;
 }
+
+.diet-log {
+  text-align: center;
+}
+
+.dark-div {
+  background: #eaeaea;
+  background: -webkit-linear-gradient(left, #ffffff, #eaeaea, #ffffff);
+  background: -o-linear-gradient(right, #ffffff, #eaeaea, #ffffff);
+  background: -moz-linear-gradient(right, #ffffff, #eaeaea, #ffffff);
+  background: linear-gradient(to right, #ffffff, #eaeaea, #ffffff);
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-top: -20px;
+  margin-bottom: -20px;
+}
+.light-div {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-top: -20px;
+  margin-bottom: -20px;
+}
+
+.edit-btn {
+  background: #00ccff;
+  border: none;
+}
+
+.edit-btn-div {
+  position: absolute;
+  right: 60px;
+}
+
+@media (max-width: 769px) {
+  .day-weight {
+    text-align: center;
+  }
+  .edit-btn {
+    position: absolute;
+    right: 0px;
+  }
+}
+
+
+

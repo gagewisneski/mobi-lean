@@ -1,0 +1,44 @@
+<div ng-app="app">
+  <div ng-controller="dietCtrl" ng-init="setup()">
+    <h3>Log your diet:</h3>
+    <div ng-repeat="diet in diets">
+      <hr>
+      <div ng-if="dayEven(diet.day)" class="container {{ diet.day }}day">
+        <div class="col-sm-2 col-xs-12 day-weight">
+          <p><b>Day:</b> {{ diet.day }}</p>
+          <p ng-if="diet.weight != null"><b>Weight:</b> {{ diet.weight }}</p>
+        </div>
+        <div ng-if="anything(diet)">
+          <div class="col-sm-3 col-xs-6 diet-log">
+            <p><b>Moderations:</b></p>
+            <ul style="list-style:none;">
+              <li ng-if="food(diet.nuts_and_seeds)">{{ diet.nuts_and_seeds }} Nuts or Seeds</li>
+              <li ng-if="food(diet.greek_yogurt)">{{ diet.greek_yogurt }} Greek Yogurt</li>
+              <li ng-if="food(diet.cheese)">{{ diet.cheese }} Cheese</li>
+              <li ng-if="food(diet.almond_butter)">{{ diet.almond_butter }} Almond Butter</li>
+              <li ng-if="food(diet.zoodles)">{{ diet.zoodles }} Zoodles</li>
+              <li ng-if="food(diet.spaghetti_squash)">{{ diet.spaghetti_squash }} Spaghtti Squash</li>
+              <li ng-if="food(diet.hummus_and_guac)">{{ diet.hummus_and_guac }} Hummus or Guac.</li>
+              <li ng-if="food(diet.cottage_cheese)">{{ diet.cottage_cheese }} Cottage Cheese</li>
+            </ul>
+          </div>
+          <div class="col-sm-4 col-xs-6 diet-log">
+            <p><b>Options:</b></p>
+            <ul style="list-style:none;">
+              <li ng-if="food(diet.fruit)">{{ diet.fruit }} Fruit</li>
+              <li ng-if="food(diet.happy)">{{ diet.happy }} Happy</li>
+              <li ng-if="food(diet.bean)">{{ diet.bean }} Bean</li>
+              <li ng-if="food(diet.chocolate_bar)">{{ diet.chocolate_bar }} 1/2 Chocolate Bar</li>
+            </ul>
+          </div>
+        </div>
+        <div ng-if="anything(diet) === false" class="col-xs-10">
+          <p>You haven't entered anything for today</p>
+        </div>
+        <div class="col-sm-2 col-xs-12 edit-btn-div">
+          <button class="btn btn-primary edit-btn">Edit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

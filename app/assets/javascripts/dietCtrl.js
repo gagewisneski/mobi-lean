@@ -35,7 +35,20 @@
       };
     }
 
+    $scope.editButton = function(day) {
+      var edit = document.getElementById('edit-jumbo' + day)
+      if (edit.style.display === 'none') {
+        edit.style.display = '';
+      } else {
+        edit.style.display = 'none';
+      }
+    }
+
     window.$scope = $scope;
   }]);
 
 }());
+
+
+
+

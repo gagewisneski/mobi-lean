@@ -36,9 +36,21 @@
           <p>You haven't entered anything for today</p>
         </div>
         <div class="col-sm-2 col-xs-12 edit-btn-div">
-          <button class="btn btn-primary edit-btn">Edit</button>
+          <button class="btn btn-primary edit-btn" ng-click="editButton(diet.day)">Edit</button>
+        </div>
+      </div>
+      <div class= "jumbo-wrapper">
+        <div class="jumbotron" id="edit-jumbo{{ diet.day }}" style="display:none">
+          <button ng-click="editButton(diet.day)">Save</button>
+          <button ng-click="editButton(diet.day)">Close</button>
         </div>
       </div>
     </div>
   </div>
 </div>
+
+
+
+
+
+

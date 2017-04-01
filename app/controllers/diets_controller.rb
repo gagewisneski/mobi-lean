@@ -47,17 +47,13 @@ class DietsController < ApplicationController
   end
 
   def edit
-    # edit your daily log
-    @users = User.find(current_user.id)
+    @user = User.find(current_user.id)
+    @diets = Diet.where(user_id: @user.id).order(:day)
     @moderations = [0, 1, 2, 3]
     @options = [0, 1, 2]
     @chocolate_bar = [0, 1]
   end
 
   def update
-  end
-
-  def diets
-    @diets = Diet.where(user_id: current_user.id).order(:day)
   end
 end

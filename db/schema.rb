@@ -10,29 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170327023440) do
+ActiveRecord::Schema.define(version: 20170331201417) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "diets", force: :cascade do |t|
     t.integer  "user_id"
-    t.decimal  "weight",           precision: 4, scale: 1
-    t.datetime "created_at",                                           null: false
-    t.datetime "updated_at",                                           null: false
+    t.decimal  "weight",            precision: 4, scale: 1
+    t.datetime "created_at",                                            null: false
+    t.datetime "updated_at",                                            null: false
     t.integer  "day"
-    t.integer  "nuts_and_seeds",                           default: 0
-    t.integer  "greek_yogurt",                             default: 0
-    t.integer  "cheese",                                   default: 0
-    t.integer  "almond_butter",                            default: 0
-    t.integer  "zoodles",                                  default: 0
-    t.integer  "spaghetti_squash",                         default: 0
-    t.integer  "hummus_and_guac",                          default: 0
-    t.integer  "cottage_cheese",                           default: 0
-    t.integer  "fruit",                                    default: 0
-    t.integer  "happy",                                    default: 0
-    t.integer  "bean",                                     default: 0
-    t.integer  "chocolate_bar",                            default: 0
+    t.integer  "nuts_and_seeds",                            default: 0
+    t.integer  "greek_yogurt",                              default: 0
+    t.integer  "cheese",                                    default: 0
+    t.integer  "almond_butter",                             default: 0
+    t.integer  "zoodles",                                   default: 0
+    t.integer  "spaghetti_squash",                          default: 0
+    t.integer  "hummus_and_guac",                           default: 0
+    t.integer  "cottage_cheese",                            default: 0
+    t.integer  "fruit",                                     default: 0
+    t.integer  "happy",                                     default: 0
+    t.integer  "bean",                                      default: 0
+    t.integer  "chocolate_bar",                             default: 0
+    t.boolean  "hawaiian_nut_fast"
+    t.boolean  "hour_fast_18"
   end
 
   create_table "programs", force: :cascade do |t|

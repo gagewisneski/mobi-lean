@@ -1,56 +1,105 @@
-<div ng-app="app">
-  <div ng-controller="dietCtrl" ng-init="setup()">
-    <h3>Log your diet:</h3>
-    <div ng-repeat="diet in diets">
-      <hr>
-      <div ng-if="dayEven(diet.day)" class="container {{ diet.day }}day">
-        <div class="col-sm-2 col-xs-12 day-weight">
-          <p><b>Day:</b> {{ diet.day }}</p>
-          <p ng-if="diet.weight != null"><b>Weight:</b> {{ diet.weight }}</p>
+<h3>Log your diet:</h3>
+<% @diets.each do |diet| %>
+  <hr>
+  <% if diet.day%2 == 0 %>
+    <div class="container dark-div">
+  <% else %>
+    <div class="container light-div">
+  <% end %>
+    <div class="col-sm-2 col-xs-12 day-weight">
+      <p><b>Day:</b> <%= diet.day %></p>
+      <% if diet.weight %>
+        <p><b>Weight:</b> <%= diet.weight %></p>
+      <% end %>
+    </div>
+    <% if diet.anything? %>
+      <div>
+        <div class="col-sm-3 col-xs-6 diet-log">
+          <p><b>Moderations:</b></p>
+          <ul style="list-style:none;">
+            <% if diet.nuts_and_seeds > 0 %>
+              <li><%= "#{diet.nuts_and_seeds} Nuts or Seeds" %></li>
+            <% end %>
+            <% if diet.greek_yogurt > 0 %>
+              <li><%= "#{diet.greek_yogurt} Greek Yogurt" %></li>
+            <% end %>
+            <% if diet.cheese > 0 %>
+              <li><%= "#{diet.cheese} Cheese" %></li>
+            <% end %>
+            <% if diet.almond_butter > 0 %>
+              <li><%= "#{diet.almond_butter} Almond Butter" %></li>
+            <% end %>
+            <% if diet.zoodles > 0 %>
+              <li><%= "#{diet.zoodles} Zoodles" %></li>
+            <% end %>
+            <% if diet.spaghetti_squash > 0%>
+              <li><%= "#{diet.spaghetti_squash} Spaghtti Squash" %></li>
+            <% end %>
+            <% if diet.hummus_and_guac > 0 %>
+              <li><%= "#{diet.hummus_and_guac} Hummus or Guac." %></li>
+            <% end %>
+            <% if diet.cottage_cheese > 0 %>
+              <li><%= "#{diet.cottage_cheese} Cottage Cheese" %></li>
+            <% end %>
+          </ul>
         </div>
-        <div ng-if="anything(diet)">
-          <div class="col-sm-3 col-xs-6 diet-log">
-            <p><b>Moderations:</b></p>
-            <ul style="list-style:none;">
-              <li ng-if="food(diet.nuts_and_seeds)">{{ diet.nuts_and_seeds }} Nuts or Seeds</li>
-              <li ng-if="food(diet.greek_yogurt)">{{ diet.greek_yogurt }} Greek Yogurt</li>
-              <li ng-if="food(diet.cheese)">{{ diet.cheese }} Cheese</li>
-              <li ng-if="food(diet.almond_butter)">{{ diet.almond_butter }} Almond Butter</li>
-              <li ng-if="food(diet.zoodles)">{{ diet.zoodles }} Zoodles</li>
-              <li ng-if="food(diet.spaghetti_squash)">{{ diet.spaghetti_squash }} Spaghtti Squash</li>
-              <li ng-if="food(diet.hummus_and_guac)">{{ diet.hummus_and_guac }} Hummus or Guac.</li>
-              <li ng-if="food(diet.cottage_cheese)">{{ diet.cottage_cheese }} Cottage Cheese</li>
-            </ul>
-          </div>
-          <div class="col-sm-4 col-xs-6 diet-log">
-            <p><b>Options:</b></p>
-            <ul style="list-style:none;">
-              <li ng-if="food(diet.fruit)">{{ diet.fruit }} Fruit</li>
-              <li ng-if="food(diet.happy)">{{ diet.happy }} Happy</li>
-              <li ng-if="food(diet.bean)">{{ diet.bean }} Bean</li>
-              <li ng-if="food(diet.chocolate_bar)">{{ diet.chocolate_bar }} 1/2 Chocolate Bar</li>
-            </ul>
-          </div>
-        </div>
-        <div ng-if="anything(diet) === false" class="col-xs-10">
-          <p>You haven't entered anything for today</p>
-        </div>
-        <div class="col-sm-2 col-xs-12 edit-btn-div">
-          <button class="btn btn-primary edit-btn" ng-click="editButton(diet.day)">Edit</button>
+        <div class="col-sm-4 col-xs-6 diet-log">
+          <p><b>Options:</b></p>
+          <ul style="list-style:none;">
+            <% if diet.fruit > 0 %>
+              <li><%= "#{diet.fruit} Fruit" %></li>
+            <% end %>
+            <% if diet.happy > 0 %>
+              <li><%= "#{diet.happy} Happy" %></li>
+            <% end %>
+            <% if diet.bean > 0 %>
+              <li><%= "#{diet.bean} Bean" %></li>
+            <% end %>
+            <% if diet.chocolate_bar > 0 %>
+              <li><%= "#{diet.chocolate_bar} 1/2 Chocolate Bar" %></li>
+            <% end %>
+          </ul>
         </div>
       </div>
-      <div class= "jumbo-wrapper">
-        <div class="jumbotron" id="edit-jumbo{{ diet.day }}" style="display:none">
-          <button ng-click="editButton(diet.day)">Save</button>
-          <button ng-click="editButton(diet.day)">Close</button>
-        </div>
+    <% end %>
+    <% if diet.anything? == false %>
+      <div class="col-xs-10">
+        <p>You haven't entered anything for today</p>
       </div>
+    <% end %>
+    <div class="col-sm-2 col-xs-12 edit-btn-div">
+      <button class="btn btn-primary edit-btn editJumbo<%=diet.day%>">Edit</button>
+    </div>
+    <% if diet.hawaiian_nut_fast || diet.hour_fast_18 %>
+      <div class="col-xs-12">
+        <p><b>Fasting:</b></p>
+        <ul style="list-style:none;">
+          <% if diet.hawaiian_nut_fast %>
+            <li>Hawaiian Nut Fast</li>
+          <% end %>
+          <% if diet.hour_fast_18 %>
+            <li>18 Hour Fast</li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+  </div><!-- Ends if even or odd containers -->
+  <div class= "jumbo-wrapper">
+    <div class="jumbotron editJumbo" id="edit-jumbo<%=diet.day%>" style="display:none;">
+    <%= diet.day %>
+      <button class="btn btn-primary edit-btn editJumbo<%=diet.day%>">Close</button>
     </div>
   </div>
-</div>
-
-
-
-
-
-
+  <script>
+    $(document).ready(function() {
+      $(".editJumbo" + <%=diet.day%>).on("click", function() {
+        var edit = document.getElementById("edit-jumbo" + <%=diet.day%>);
+        if (edit.style.display === 'none') {
+          edit.style.display = '';
+        } else {
+          edit.style.display = "none";
+        }
+      })
+    })
+  </script>
+<% end %>

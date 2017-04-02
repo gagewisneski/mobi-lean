@@ -69,16 +69,25 @@
 .save-btn {
   background: #00ccff;
   border: none;
+  float: left;
+  margin-right: 5px;
+  margin-top: 200px;
 }
 .save-btn:hover {
   background-color: #00afdb;
 }
 .close-btn {
-  background: #00ccff;
-  border: none;
+  background: none;
+  padding: 4px 10px;
+  border: 2px solid #00ccff;
+  color: #00ccff;
+  display: inline;
+  margin-top: 200px;
 }
 .close-btn:hover {
-  background-color: #00afdb;
+  background: none;
+  border: 2px solid #00afdb;
+  color: #00afdb;
 }
 
 @media (max-width: 769px) {
@@ -104,13 +113,16 @@
 .editJumbo {
   padding-bottom: 10px;
 }
-.button-div {
-  display: inline-block;
-}
 @media (max-height: 579px) {
   .jumbo-wrapper {
     height: 85%;
     overflow: scroll;
+  }
+}
+@media (max-width: 767px) {
+  .save-btn,
+  .close-btn {
+    margin-top: 5px;
   }
 }
 

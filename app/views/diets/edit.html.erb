@@ -6,14 +6,19 @@
   <% else %>
     <div class="container light-div">
   <% end %>
-    <div class="col-sm-2 col-xs-12 day-weight">
-      <p><b>Day:</b> <%= diet.day %></p>
-      <% if diet.weight %>
-        <p><b>Weight:</b> <%= diet.weight %></p>
-      <% end %>
+    <div class="col-sm-2 col-xs-12 edit-btn-div">
+      <button class="btn btn-primary edit-btn editJumbo<%=diet.day%>">Edit</button>
     </div>
-    <% if diet.anything? %>
-      <div>
+    <div class="row">
+      <div class="col-sm-2 col-xs-12 day-weight">
+        <p><b>Day:</b> <%= diet.day %></p>
+        <% if diet.weight %>
+          <p><b>Weight:</b> <%= diet.weight %></p>
+        <% else %>
+          <p><b>Weight:</b> --</p>
+        <% end %>
+      </div>
+      <% if diet.anything? %>
         <div class="col-sm-3 col-xs-6 diet-log">
           <p><b>Moderations:</b></p>
           <ul style="list-style:none;">
@@ -60,15 +65,12 @@
             <% end %>
           </ul>
         </div>
-      </div>
-    <% end %>
-    <% if diet.anything? == false %>
-      <div class="col-xs-10">
-        <p>You haven't entered anything for today</p>
-      </div>
-    <% end %>
-    <div class="col-sm-2 col-xs-12 edit-btn-div">
-      <button class="btn btn-primary edit-btn editJumbo<%=diet.day%>">Edit</button>
+      <% end %>
+      <% if diet.anything? == false %>
+        <div class="col-xs-10">
+          <p>You haven't entered anything for today</p>
+        </div>
+      <% end %>
     </div>
     <% if diet.hawaiian_nut_fast || diet.hour_fast_18 %>
       <div class="col-xs-6">
@@ -156,11 +158,9 @@
             <b>Cheat Meal:</b><br>
             <%= check_box_tag(:cheat_meal, true, diet.cheat_meal) %>
           </div>
-          <div class="button-div">
           <%= submit_tag "Save", class:"btn btn-primary save-btn editJumbo#{diet.day}" %>
         <% end %>
         <button class="btn btn-primary close-btn editJumbo<%=diet.day%>">Close</button>
-        </div> <!-- Button div -->
       </div>
     </div>
   </div>

@@ -49,11 +49,12 @@ class DietsController < ApplicationController
   def edit
     @user = User.find(current_user.id)
     @diets = Diet.where(user_id: @user.id).order(:day)
-    @moderations = [0, 1, 2, 3]
-    @options = [0, 1, 2]
-    @chocolate_bar = [0, 1]
   end
 
   def update
+    @diet = Diet.find(params[:id])
+    @diet.assign_attributes(weight: params[:weight], nuts_and_seeds: params[:nuts_and_seeds], greek_yogurt: params[:greek_yogurt], cheese: params[:cheese], almond_butter: params[:almond_butter], zoodles: params[:zoodles], spaghetti_squash: params[:spaghetti_squash], hummus_and_guac: params[:hummus_and_guac], cottage_cheese: params[:cottage_cheese], fruit: params[:fruit], happy: params[:happy], bean: params[:bean], chocolate_bar: params[:chocolate_bar], hawaiian_nut_fast: params[:hawaiian_nut_fast], hour_fast_18: params[:hour_fast_18], cheat_meal: params[:cheat_meal])
+    @diet.save
+    redirect_to '/diets/edit'
   end
 end

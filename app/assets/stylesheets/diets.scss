@@ -66,6 +66,21 @@
   right: 60px;
 }
 
+.save-btn {
+  background: #00ccff;
+  border: none;
+}
+.save-btn:hover {
+  background-color: #00afdb;
+}
+.close-btn {
+  background: #00ccff;
+  border: none;
+}
+.close-btn:hover {
+  background-color: #00afdb;
+}
+
 @media (max-width: 769px) {
   .day-weight {
     text-align: center;
@@ -76,5 +91,27 @@
   }
 }
 
+.jumbo-wrapper {
+  position: fixed;
+  top: 60px;
+  z-index: 10;
+  border-radius: 10px;
+  box-shadow: 1px 3px 3px #888888;
+  background: #eaeaea;
+  width: 90%;
+  left: 5%;
+}
+.editJumbo {
+  padding-bottom: 10px;
+}
+.button-div {
+  display: inline-block;
+}
+@media (max-height: 579px) {
+  .jumbo-wrapper {
+    height: 85%;
+    overflow: scroll;
+  }
+}
 
 

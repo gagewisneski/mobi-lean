@@ -22,7 +22,7 @@ class UsersController < ApplicationController
         session[:user_id] = @user.id
         count = 1
         20.times do
-          Diet.create(day: count, user_id: @user.id, hawaiian_nut_fast: false, hour_fast_18: false)
+          Diet.create(day: count, user_id: @user.id, hawaiian_nut_fast: false, hour_fast_18: false, cheat_meal: false)
           count += 1
         end
         flash[:success] = 'You have successfully signed up!'

@@ -8,6 +8,8 @@ class Diet < ApplicationRecord
       return true
     elsif hour_fast_18
       return true
+    elsif cheat_meal
+      return true
     else
       return false
     end

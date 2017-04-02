@@ -71,7 +71,7 @@
       <button class="btn btn-primary edit-btn editJumbo<%=diet.day%>">Edit</button>
     </div>
     <% if diet.hawaiian_nut_fast || diet.hour_fast_18 %>
-      <div class="col-xs-12">
+      <div class="col-xs-6">
         <p><b>Fasting:</b></p>
         <ul style="list-style:none;">
           <% if diet.hawaiian_nut_fast %>
@@ -83,21 +83,101 @@
         </ul>
       </div>
     <% end %>
+    <% if diet.cheat_meal %>
+      <div class="col-xs-6">
+        <p><b>Cheat Meal</b></p>
+      </div>
+    <% end %>
   </div><!-- Ends if even or odd containers -->
-  <div class= "jumbo-wrapper">
-    <div class="jumbotron editJumbo" id="edit-jumbo<%=diet.day%>" style="display:none;">
-    <%= diet.day %>
-      <button class="btn btn-primary edit-btn editJumbo<%=diet.day%>">Close</button>
+  <div class= "jumbo-wrapper" id="jumbo-edit<%=diet.day%>" style="display:none;">
+    <div class="editJumbo" id="edit-jumbo<%=diet.day%>" style="display:none;">
+      <div class="container">
+        <%= form_tag "/diets/#{diet.id}", method: :patch do %>
+          <h4>Edit Day <%= diet.day %></h4>
+          <b>Weight:</b>
+          <%= text_field_tag :weight, diet.weight %>
+          <br>
+          <br>
+          Enter how many of each item you ate on this day or if you fasted or had a cheat meal
+          <br>
+          <br>
+          <div class="col-xs-6 col-sm-3">
+            <b>Moderations:</b><br>
+            Nuts or Seeds<br>
+            <%= select_tag(:nuts_and_seeds, options_for_select([[0, 0], [1, 1], [2, 2], [3, 3]], diet.nuts_and_seeds)) %>
+            <br>
+            Greek Yogurt<br>
+            <%= select_tag(:greek_yogurt, options_for_select([[0, 0], [1, 1], [2, 2], [3, 3]], diet.greek_yogurt)) %>
+            <br>
+            Cheese<br>
+            <%= select_tag(:cheese, options_for_select([[0, 0], [1, 1], [2, 2], [3, 3]], diet.cheese)) %>
+            <br>
+            Almond Butter<br>
+            <%= select_tag(:almond_butter, options_for_select([[0, 0], [1, 1], [2, 2], [3, 3]], diet.almond_butter)) %>
+            <br>
+            Zoodles<br>
+            <%= select_tag(:zoodles, options_for_select([[0, 0], [1, 1], [2, 2], [3, 3]], diet.zoodles)) %>
+            <br>
+            Spaghtti Squash<br>
+            <%= select_tag(:spaghetti_squash, options_for_select([[0, 0], [1, 1], [2, 2], [3, 3]], diet.spaghetti_squash)) %>
+            <br>
+            Hummus or Guac.<br>
+            <%= select_tag(:hummus_and_guac, options_for_select([[0, 0], [1, 1], [2, 2], [3, 3]], diet.hummus_and_guac)) %>
+            <br>
+            Cottage Cheese<br>
+            <%= select_tag(:cottage_cheese, options_for_select([[0, 0], [1, 1], [2, 2], [3, 3]], diet.cottage_cheese)) %>
+            <br>
+          </div>
+          <div class="col-xs-6 col-sm-3">
+            <b>Options:</b><br>
+            Fruit<br>
+            <%= select_tag(:fruit, options_for_select([[0, 0], [1, 1], [2, 2]], diet.fruit)) %>
+            <br>
+            Happy<br>
+            <%= select_tag(:happy, options_for_select([[0, 0], [1, 1], [2, 2]], diet.happy)) %>
+            <br>
+            Bean<br>
+            <%= select_tag(:bean, options_for_select([[0, 0], [1, 1], [2, 2]], diet.bean)) %>
+            <br>
+            1/2 Chocolate Bar<br>
+            <%= select_tag(:chocolate_bar, options_for_select([[0, 0], [1, 1]], diet.chocolate_bar)) %>
+            <br>
+          </div>
+          <div class="col-xs-6 col-sm-3">
+            <b>Fasting:</b><br>
+            Hawaiian Nut Fast<br>
+            <%= check_box_tag(:hawaiian_nut_fast, true, diet.hawaiian_nut_fast) %>
+            <br>
+            18 Hour Fast<br>
+            <%= check_box_tag(:hour_fast_18, true, diet.hour_fast_18) %>
+            <br>
+          </div>
+          <div class="col-xs-6 col-sm-3">
+            <b>Cheat Meal:</b><br>
+            <%= check_box_tag(:cheat_meal, true, diet.cheat_meal) %>
+          </div>
+          <div class="button-div">
+          <%= submit_tag "Save", class:"btn btn-primary save-btn editJumbo#{diet.day}" %>
+        <% end %>
+        <button class="btn btn-primary close-btn editJumbo<%=diet.day%>">Close</button>
+        </div> <!-- Button div -->
+      </div>
     </div>
   </div>
   <script>
     $(document).ready(function() {
       $(".editJumbo" + <%=diet.day%>).on("click", function() {
         var edit = document.getElementById("edit-jumbo" + <%=diet.day%>);
+        var jumbo = document.getElementById("jumbo-edit" + <%=diet.day%>);
         if (edit.style.display === 'none') {
           edit.style.display = '';
         } else {
           edit.style.display = "none";
+        }
+        if (jumbo.style.display === 'none') {
+          jumbo.style.display = '';
+        } else {
+          jumbo.style.display = "none";
         }
       })
     })

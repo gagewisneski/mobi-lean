@@ -54,6 +54,7 @@ hr {
 
 .light-section {
   margin-bottom: 25px;
+  padding: 30px;
   h2 {
     color: #00ccff;
     text-align: center;
@@ -70,8 +71,8 @@ hr {
 .dark-section {
   background-color: #eaeaea;
   margin-bottom: 30px;
-  padding-bottom: 30px;
-  h2 {
+  padding: 30px;
+    h2 {
     text-align: center;
     color: #00ccff;
   }
@@ -89,6 +90,14 @@ hr {
   line-height: 50px;
   text-indent: 50px;
 }
+
+@media (max-width: 400px) {
+  .info-para {
+    text-indent: 0px;
+    line-height: 18px;
+  }
+}
+
 
 .testimonial-image1 {
   height: 250px;

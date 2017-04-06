@@ -19,13 +19,13 @@ class UsersController < ApplicationController
     if params[:email] == params[:email_again]
       @user = User.new(user_params)
       if @user.save
-        session[:user_id] = @user.id
+        @user.send_activation_email
+        flash[:success] = 'Please check your email to activate your account.'
         count = 1
         20.times do
           Diet.create(day: count, user_id: @user.id, hawaiian_nut_fast: false, hour_fast_18: false, cheat_meal: false)
           count += 1
         end
-        flash[:success] = 'You have successfully signed up!'
         redirect_to '/'
       else
         # flash[:warning] = @user.errors.full_messages.join(', ')

@@ -11,29 +11,22 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
-    @programs = Program.all
   end
 
   def create
-    @programs = Program.all
-    if params[:email] == params[:email_again]
-      @user = User.new(user_params)
-      if @user.save
-        @user.send_activation_email
-        flash[:success] = 'Please check your email to activate your account.'
-        count = 1
-        20.times do
-          Diet.create(day: count, user_id: @user.id, hawaiian_nut_fast: false, hour_fast_18: false, cheat_meal: false)
-          count += 1
-        end
-        redirect_to '/'
-      else
-        # flash[:warning] = @user.errors.full_messages.join(', ')
-        flash[:warning] = 'Something went wrong'
-        render :new
+    @user = User.new(user_params)
+    if @user.save
+      @user.send_activation_email
+      flash[:success] = 'Please check your email to activate your account.'
+      count = 1
+      20.times do
+        Diet.create(day: count, user_id: @user.id, hawaiian_nut_fast: false, hour_fast_18: false, cheat_meal: false)
+        count += 1
       end
+      redirect_to '/'
     else
-      flash[:warning] = 'You entered two different emails'
+      # flash[:warning] = @user.errors.full_messages.join(', ')
+      flash[:warning] = 'Something went wrong'
       render :new
     end
   end
@@ -41,6 +34,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :program_id)
+    params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
   end
 end

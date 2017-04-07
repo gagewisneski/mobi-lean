@@ -1,7 +1,4 @@
 class Program < ApplicationRecord
-  has_many :users
-
-  def strf_dates
-    "#{start_date.strftime('%b %d, %Y')} - #{end_date.strftime('%b %d, %Y')}"
-  end
+  has_many :users_programs
+  has_many :users, through: :users_programs
 end

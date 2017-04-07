@@ -4,9 +4,10 @@ class User < ApplicationRecord
   has_secure_password
 
   has_many :diets
-  belongs_to :program
+  has_many :users_programs
+  has_many :programs, through: :users_programs
 
-  validates :first_name, :last_name, :email, :password_digest, :program_id, presence: true
+  validates :first_name, :last_name, :email, :password_digest, presence: true
   validates :email, uniqueness: true
 
   before_save   :downcase_email
@@ -20,10 +21,6 @@ class User < ApplicationRecord
     digest = self.send("#{attribute}_digest")
     return false if digest.nil?
     BCrypt::Password.new(digest).is_password?(token)
-  end
-
-  def activate
-    update_attribute(activated: true)
   end
 
   def send_activation_email

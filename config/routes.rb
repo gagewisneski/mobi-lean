@@ -15,4 +15,5 @@ Rails.application.routes.draw do
   get '/diets/edit', to: 'diets#edit'
   resources :diets
   resources :account_activations, only: [:edit]
+  resources :programs
 end

@@ -1,0 +1,17 @@
+<h1>Programs</h1>
+
+<%= link_to 'New Program', '/programs/new', class:"btn btn-success" %><br><br><br>
+
+<% @programs.each do |program| %>
+  <hr>
+  <%= "#{program.start_date} - #{program.end_date}" %><br>
+  <b><% if program.active %>
+    Active
+  <% else %>
+    Unactive
+  <% end %></b>
+  <br>
+  <%= link_to 'Edit', "/programs/#{program.id}/edit", class:"btn btn-info" %>
+  <%= link_to 'Delete', "/programs/#{program.id}", class:"btn btn-danger", :method => :delete %>
+  <br>
+<% end %>

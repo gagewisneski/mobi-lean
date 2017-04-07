@@ -91,7 +91,7 @@
 
     <% @programs.each do |program| %>
       <div class="well"><center><h3><%="#{program.start_date} - #{program.end_date}"%></h3>
-        <a class="btn btn-primary signup-btn1" href="/users/new">Signup</a></center>
+        <a class="btn btn-primary signup-btn1" href="/users_programs/<%=program.id%>/new">Join Program</a></center>
       </div>
     <% end %>
 

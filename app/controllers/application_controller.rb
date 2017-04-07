@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
 
   def authenticate_user!
     unless current_user
-      flash[:warning] = 'Only people that are logged in can do that!'
+      flash[:warning] = 'You need to be logged in to do this'
       redirect_to '/login'
     end
   end

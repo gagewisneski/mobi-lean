@@ -16,4 +16,6 @@ Rails.application.routes.draw do
   resources :diets
   resources :account_activations, only: [:edit]
   resources :programs
+  get '/users_programs/:id/new', to: 'users_programs#new'
+  post '/users_programs', to: 'users_programs#create'
 end

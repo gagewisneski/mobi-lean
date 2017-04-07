@@ -1,5 +1,6 @@
 class DietsController < ApplicationController
   before_action :authenticate_user!
+  before_action :active_program?
 
   def index
     # here is the information on the diet
@@ -24,7 +25,6 @@ class DietsController < ApplicationController
   end
 
   def new
-    # daily form to log your diet
   end
 
   def create

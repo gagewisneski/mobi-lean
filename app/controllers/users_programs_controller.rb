@@ -11,6 +11,11 @@ class UsersProgramsController < ApplicationController
       users_program = UsersProgram.new(user_id: current_user.id, program_id: params[:program_id])
       if users_program.save
         flash[:success] = 'You have signed up for this program'
+        count = 1
+        20.times do
+          Diet.create(day: count, user_id: @user.id, hawaiian_nut_fast: false, hour_fast_18: false, cheat_meal: false, program_id: params[:program_id])
+          count += 1
+        end
       else
         flash[:warning] = 'Something went wrong'
       end

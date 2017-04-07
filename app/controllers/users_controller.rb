@@ -18,11 +18,6 @@ class UsersController < ApplicationController
     if @user.save
       @user.send_activation_email
       flash[:success] = 'Please check your email to activate your account.'
-      count = 1
-      20.times do
-        Diet.create(day: count, user_id: @user.id, hawaiian_nut_fast: false, hour_fast_18: false, cheat_meal: false)
-        count += 1
-      end
       redirect_to '/'
     else
       # flash[:warning] = @user.errors.full_messages.join(', ')

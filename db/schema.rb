@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170407070658) do
+ActiveRecord::Schema.define(version: 20170407075642) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 20170407070658) do
     t.boolean  "hawaiian_nut_fast"
     t.boolean  "hour_fast_18"
     t.boolean  "cheat_meal"
+    t.integer  "program_id"
   end
 
   create_table "programs", force: :cascade do |t|

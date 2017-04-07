@@ -26,4 +26,23 @@ class ApplicationController < ActionController::Base
       flash[:danger] = "You aren't an admin!"
     end
   end
+
+  def active_program?
+    if current_user.programs
+      programs = current_user.programs
+      active = 0
+      programs.each do |program|
+        if program.active
+          active += 1
+        end
+      end
+      if active.zero?
+        redirect_to '/'
+        flash[:warning] = "Your program isn't active"
+      end
+    elsif current_user
+      redirect_to '/'
+      flash[:warning] = 'You need to sign up for a program'
+    end
+  end
 end

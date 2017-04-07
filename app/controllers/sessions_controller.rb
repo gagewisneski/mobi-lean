@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  before_action :signed_in?, only: [:new, :ceate]
+
   def new
     @user = User.new
   end

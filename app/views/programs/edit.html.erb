@@ -2,12 +2,13 @@
 
 <%= form_tag "/programs/#{@program.id}", method: :patch do %>
   <%= label_tag :program_start_date %>
-  <%= text_field_tag :start_date, @program.start_date %>
+  <%= text_field_tag :start_date, @program.start_date %><br>
   <%= label_tag :program_end_date %>
-  <%= text_field_tag :end_date, @program.end_date %>
+  <%= text_field_tag :end_date, @program.end_date %><br>
   <%= label_tag :password %>
-  <%= text_field_tag :password, @program.password_digest %>
-  <%= check_box_tag(:active, true, @program.active) %>
+  <%= text_field_tag :password, @program.password_digest %><br>
+  <%= label_tag :active %>
+  <%= check_box_tag(:active, true, @program.active) %><br>
   <%= submit_tag 'Save' %>
 
 <% end %>

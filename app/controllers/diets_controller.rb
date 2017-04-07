@@ -48,7 +48,8 @@ class DietsController < ApplicationController
 
   def edit
     @user = User.find(current_user.id)
-    @diets = Diet.where(user_id: @user.id).order(:day)
+    @program = Program.find_by(active: true)
+    @diets = Diet.where(user_id: @user.id, program_id: @program.id).order(:day)
   end
 
   def update

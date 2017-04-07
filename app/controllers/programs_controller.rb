@@ -11,7 +11,7 @@ class ProgramsController < ApplicationController
   def create
     program = Program.new(start_date: params[:start_date], end_date: params[:end_date], active: false, password_digest: params[:password])
     if program.save
-      redirect_to '/'
+      redirect_to '/programs'
       flash[:success] = 'Saved program'
     else
       redirect_to '/programs/new'

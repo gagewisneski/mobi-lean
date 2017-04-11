@@ -2,24 +2,146 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.core {
-  background-color: green;
-  color: white;
+
+.diets-title {
+  position: absolute;
+  left: 500px;
+  color:#ffa100;
 }
 
-.moderation {
-  background-color: orange;
+.container {
+  h3 {
+    line-height: 10px;
+  }
+  a:hover {
+    text-decoration: none;
+  }
+}
+
+.core-container {
+  position: absolute;
+  left: 570px;
+  top: 320px;
+}
+.core {
+  background-color: #16bf00;
   color: white;
+  border-radius: 10%;
+  height: 200px;
+  width: 200px;
+  text-align: center;
+  padding: 10px;
+}
+
+.moderation-container1 {
+  position: absolute;
+  left: 220px;
+  top: 320px;
+  h2 {
+    line-height: 20px;
+  }
+}
+.moderation1 {
+  background-color: #ff3535;
+  color: white;
+  border-radius: 10%;
+  height: 170px;
+  width: 300px;
+  text-align: center;
+  padding: 10px;
+}
+
+.moderation-container2 {
+  position: absolute;
+  left: 820px;
+  top: 320px;
+  h2 {
+    line-height: 20px;
+  }
+}
+.moderation2 {
+  background-color: #ff3535;
+  color: white;
+  border-radius: 10%;
+  height: 200px;
+  width: 300px;
+  text-align: center;
+  padding: 10px;
 }
 
 .options {
-  background-color: red;
+  position: absolute;
+  top: 720px;
+  text-align: center;
+}
+.fruit-option {
+  position: absolute;
+  top: 720px;
+  left: 340px;
+  height: 170px;
+  width: 170px;
+  border-radius: 100%;
+  background-color: #ffa100;
   color: white;
+  text-align: center;
+  padding: 10px;
+  h3 {
+    line-height: 10px;
+  }
+}
+.bean-option {
+  position: absolute;
+  top: 780px;
+  left: 600px;
+  height: 170px;
+  width: 170px;
+  border-radius: 100%;
+  background-color: #0e47d6;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  h3 {
+    line-height: 10px;
+  }
+}
+.happy-option {
+  position: absolute;
+  top: 720px;
+  left: 870px;
+  height: 170px;
+  width: 170px;
+  border-radius: 100%;
+  background-color: #a8088d;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  h3 {
+    line-height: 10px;
+  }
 }
 
 .cheat {
-  background-color: blue;
+  background-color: #60c7ff;
   color: white;
+  position: absolute;
+  top: 970px;
+  left: 800px;
+  height: 120px;
+  width: 120px;
+  text-align: center;
+  padding: 10px;
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  .label {
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+  }
 }
 
 .plans {

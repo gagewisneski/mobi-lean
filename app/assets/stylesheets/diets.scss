@@ -5,8 +5,10 @@
 
 .diets-title {
   position: absolute;
-  left: 500px;
+  left: 520px;
   color:#ffa100;
+  height: 30px;
+  width: 400px;
 }
 
 .container {
@@ -21,7 +23,8 @@
 .core-container {
   position: absolute;
   left: 570px;
-  top: 320px;
+  top: 220px;
+  width: 260px;
 }
 .core {
   background-color: #16bf00;
@@ -36,7 +39,8 @@
 .moderation-container1 {
   position: absolute;
   left: 220px;
-  top: 320px;
+  top: 220px;
+  width: 300px;
   h2 {
     line-height: 20px;
   }
@@ -54,7 +58,8 @@
 .moderation-container2 {
   position: absolute;
   left: 820px;
-  top: 320px;
+  top: 220px;
+  width: 300px;
   h2 {
     line-height: 20px;
   }
@@ -63,20 +68,117 @@
   background-color: #ff3535;
   color: white;
   border-radius: 10%;
-  height: 200px;
+  height: 210px;
   width: 300px;
   text-align: center;
   padding: 10px;
 }
 
+.box1 {
+  width: 50px;
+  height: 50px;
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  -webkit-transform-origin: 0 100%;
+  -moz-transform-origin: 0 100%;
+  -ms-transform-origin: 0 100%;
+  -o-transform-origin: 0 100%;
+  transform-origin: 0 100%;
+  background-color: #ffff75;
+  position: absolute;
+  top: 520px;
+  left: 570px;
+}
+.tri1 {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: 535px;
+  left: 545px;
+  border-right: 40px solid #ffff75;
+  border-top: 40px solid transparent;
+  border-bottom: 40px solid transparent;
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  -webkit-transform-origin: 0 100%;
+  -moz-transform-origin: 0 100%;
+  -ms-transform-origin: 0 100%;
+  -o-transform-origin: 0 100%;
+}
+
+.box2 {
+  width: 50px;
+  height: 50px;
+  background-color: #ffff75;
+  position: absolute;
+  top: 520px;
+  left: 660px;
+}
+.tri2 {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: 570px;
+  left: 645px;
+  border-top: 40px solid #ffff75;
+  border-left: 40px solid transparent;
+  border-right: 40px solid transparent;
+}
+
+.box3 {
+  width: 50px;
+  height: 50px;
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  -webkit-transform-origin: 0 100%;
+  -moz-transform-origin: 0 100%;
+  -ms-transform-origin: 0 100%;
+  -o-transform-origin: 0 100%;
+  transform-origin: 0 100%;
+  background-color: #ffff75;
+  position: absolute;
+  top: 520px;
+  left: 800px;
+}
+.tri3 {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: 500px;
+  left: 790px;
+  border-left: 40px solid #ffff75;
+  border-top: 40px solid transparent;
+  border-bottom: 40px solid transparent;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+  -webkit-transform-origin: 0 100%;
+  -moz-transform-origin: 0 100%;
+  -ms-transform-origin: 0 100%;
+  -o-transform-origin: 0 100%;
+}
+
 .options {
   position: absolute;
-  top: 720px;
-  text-align: center;
+  top: 620px;
+  left: 495px;
+  height: 30px;
+  width: 400px;
 }
 .fruit-option {
   position: absolute;
-  top: 720px;
+  top: 620px;
   left: 340px;
   height: 170px;
   width: 170px;
@@ -91,7 +193,7 @@
 }
 .bean-option {
   position: absolute;
-  top: 780px;
+  top: 680px;
   left: 600px;
   height: 170px;
   width: 170px;
@@ -106,7 +208,7 @@
 }
 .happy-option {
   position: absolute;
-  top: 720px;
+  top: 620px;
   left: 870px;
   height: 170px;
   width: 170px;
@@ -120,11 +222,30 @@
   }
 }
 
+.cheat-container {
+  position: absolute;
+  top: 925px;
+  left: 400px;
+  background-color: #ffff75;
+  height: 50px;
+  width: 260px;
+}
+.cheat-tri {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  top: 900px;
+  left: 635px;
+  border-left: 50px solid #ffff75;
+  border-top: 50px solid transparent;
+  border-bottom: 50px solid transparent;
+  z-index: -1;
+}
 .cheat {
   background-color: #60c7ff;
   color: white;
   position: absolute;
-  top: 970px;
+  top: 890px;
   left: 800px;
   height: 120px;
   width: 120px;
@@ -136,18 +257,143 @@
   -o-transform: rotate(-45deg);
   transform: rotate(-45deg);
   .label {
-    -webkit-transform: rotate(-45deg);
-    -moz-transform: rotate(-45deg);
-    -ms-transform: rotate(-45deg);
-    -o-transform: rotate(-45deg);
-    transform: rotate(-45deg);
+    position: absolute;
+    padding-top: 20px;
+    margin-left: -30px;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
   }
 }
 
-.plans {
-  background-color: purple;
+.chocolate-container {
+  position: absolute;
+  top: 1050px;
+  left: 585px;
+}
+.chocolate-option {
+  position: absolute;
+  top: 1110px;
+  left: 380px;
+  margin-bottom: 20px;
+  background-color: #111870;
+  color: white;
+  height: 65px;
+  width: 600px;
+  text-align: center;
+}
+
+.dietinfo {
+  cursor: pointer;
+}
+
+.diet-info {
+  z-index: 10;
+  border-radius: 10px;
+  box-shadow: 1px 3px 3px #888888;
+  background: #eaeaea;
+  width: 90%;
+  left: 5%;
+  padding: 20px;
+}
+#jumboCore {
+  position: relative;
+  top: 100px;
+  background-color: #16bf00;
   color: white;
 }
+#jumboMod {
+  position: relative;
+  top: 100px;
+  background-color: #ff3535;
+  color: white;
+}
+#jumboOption {
+  position: relative;
+  top: 400px;
+}
+#jumboCheat {
+  position: relative;
+  top: 500px;
+  background-color: #60c7ff;
+  color: white;
+}
+
+.close-info-btn {
+  background: white;
+  border: white;
+  color: #00ccff;
+}
+.close-info-btn:hover {
+  background: white;
+  border: none;
+  color: #00afdb;
+}
+.cheat-info-btn {
+  background: white;
+  border: white;
+  color: #00ccff;
+}
+.cheat-info-btn:hover {
+  background: white;
+  border: none;
+  color: #00afdb;
+}
+
+
+
+
+.fruit-option2 {
+  height: 170px;
+  width: 170px;
+  border-radius: 100%;
+  background-color: #ffa100;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  display: inline-block;
+  h3 {
+    line-height: 10px;
+  }
+}
+.bean-option2 {
+  height: 170px;
+  width: 170px;
+  border-radius: 100%;
+  background-color: #0e47d6;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  display: inline-block;
+  h3 {
+    line-height: 10px;
+  }
+}
+.happy-option2 {
+  height: 170px;
+  width: 170px;
+  border-radius: 100%;
+  background-color: #a8088d;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  display: inline-block;
+  h3 {
+    line-height: 10px;
+  }
+}
+.chocolate-option2 {
+  background-color: #212bb7;
+  color: white;
+  height: 65px;
+  width: 600px;
+  text-align: center;
+  padding-top: 1px;
+  margin-top: 10px;
+}
+
 
 .fruit-berry {
   width: 80%;

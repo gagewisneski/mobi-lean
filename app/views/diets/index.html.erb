@@ -44,19 +44,6 @@
   </center>
 </div>
 
-<script>
-  $(document).ready(function() {
-    $(".coreClick").on("click", function() {
-      var core = document.getElementById("jumboCore");
-      if (core.style.display === 'none') {
-        core.style.display = '';
-      } else {
-        core.style.display = "none";
-      }
-    })
-  })
-</script>
-
 <div class="container moderation-container1">
   <h2>Moderation:</h2>
   <h2>2-3 Picks a Day</h2>
@@ -99,19 +86,6 @@
   <button class="btn btn-primary close-info-btn modClick">Close</button>
   </center>
 </div>
-
-<script>
-  $(document).ready(function() {
-    $(".modClick").on("click", function() {
-      var mod = document.getElementById("jumboMod");
-      if (mod.style.display === 'none') {
-        mod.style.display = '';
-      } else {
-        mod.style.display = "none";
-      }
-    })
-  })
-</script>
 
 <div class="box1"></div>
 <div class="tri1"></div>
@@ -163,19 +137,6 @@
   </center>
 </div>
 
-<script>
-  $(document).ready(function() {
-    $(".optionClick").on("click", function() {
-      var option = document.getElementById("jumboOption");
-      if (option.style.display === 'none') {
-        option.style.display = '';
-      } else {
-        option.style.display = "none";
-      }
-    })
-  })
-</script>
-
 <div class="container cheat-container">
   <h3>Once a week have a</h3>
 </div>
@@ -196,7 +157,49 @@
   </center>
 </div>
 
+
+<div class="container chocolate-container">
+  <h2>Substitution</h2>
+</div>
+
+<div class="chocolate-option optionClick dietinfo">
+  <h3>Dark Chocolate 1/2 bar: Can replace 1 Option</h3>
+</div>
+
 <script>
+  $(document).ready(function() {
+    $(".coreClick").on("click", function() {
+      var core = document.getElementById("jumboCore");
+      if (core.style.display === 'none') {
+        core.style.display = '';
+      } else {
+        core.style.display = "none";
+      }
+    })
+  })
+
+  $(document).ready(function() {
+    $(".modClick").on("click", function() {
+      var mod = document.getElementById("jumboMod");
+      if (mod.style.display === 'none') {
+        mod.style.display = '';
+      } else {
+        mod.style.display = "none";
+      }
+    })
+  })
+
+  $(document).ready(function() {
+    $(".optionClick").on("click", function() {
+      var option = document.getElementById("jumboOption");
+      if (option.style.display === 'none') {
+        option.style.display = '';
+      } else {
+        option.style.display = "none";
+      }
+    })
+  })
+
   $(document).ready(function() {
     $(".cheatClick").on("click", function() {
       var cheat = document.getElementById("jumboCheat");
@@ -208,17 +211,6 @@
     })
   })
 </script>
-
-<div class="container chocolate-container">
-  <h2>Substitution</h2>
-</div>
-
-<div class="chocolate-option optionClick dietinfo">
-  <h3>Dark Chocolate 1/2 bar: Can replace 1 Option</h3>
-</div>
-
-
-
 
 
 

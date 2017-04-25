@@ -1,0 +1,12 @@
+<h1>Create a new Program</h1>
+
+<%= form_tag '/programs', method: :post do %>
+  <%= label_tag :program_start_date %>
+  <%= text_field_tag :start_date %>
+  <%= label_tag :program_end_date %>
+  <%= text_field_tag :end_date %>
+  <%= label_tag :password %>
+  <%= text_field_tag :password %>
+  <%= submit_tag 'Save' %>
+
+<% end %>

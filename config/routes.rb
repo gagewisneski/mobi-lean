@@ -14,4 +14,8 @@ Rails.application.routes.draw do
   get '/diets/mobi_meals', to: 'diets#mobi_meals'
   get '/diets/edit', to: 'diets#edit'
   resources :diets
+  resources :account_activations, only: [:edit]
+  resources :programs
+  get '/users_programs/:id/new', to: 'users_programs#new'
+  post '/users_programs', to: 'users_programs#create'
 end

@@ -1,0 +1,14 @@
+<h3 class="text-center">Join Program</h3>
+<h4 class="text-center">Dates <%= @program.start_date %> - <%= @program.end_date %></h3>
+<hr>
+
+<%= form_tag '/users_programs', method: :post do %>
+  <div class="form-group">
+    <b>Programs Password</b>
+    <%= password_field_tag :password, nil, class:"form-control" %>
+  </div>
+  <%= hidden_field_tag :program_id, @program.id %>
+  <div class="form-group text-center">
+    <%= submit_tag 'Join', class:"btn btn-primary signup-btn2" %>
+  </div>
+<% end %>

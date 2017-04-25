@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170402182849) do
+ActiveRecord::Schema.define(version: 20170407075642) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,24 +36,34 @@ ActiveRecord::Schema.define(version: 20170402182849) do
     t.boolean  "hawaiian_nut_fast"
     t.boolean  "hour_fast_18"
     t.boolean  "cheat_meal"
+    t.integer  "program_id"
   end
 
   create_table "programs", force: :cascade do |t|
-    t.datetime "start_date"
-    t.datetime "end_date"
+    t.string   "start_date"
+    t.string   "end_date"
     t.boolean  "active"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.string   "password_digest"
   end
 
   create_table "users", force: :cascade do |t|
     t.string   "email"
     t.string   "password_digest"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-    t.integer  "program_id"
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
     t.string   "first_name"
     t.string   "last_name"
+    t.string   "activation_digest"
+    t.boolean  "activated",         default: false
+  end
+
+  create_table "users_programs", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "program_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

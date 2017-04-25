@@ -54,6 +54,7 @@ hr {
 
 .light-section {
   margin-bottom: 25px;
+  padding: 25px;
   h2 {
     color: #00ccff;
     text-align: center;
@@ -70,7 +71,7 @@ hr {
 .dark-section {
   background-color: #eaeaea;
   margin-bottom: 30px;
-  padding-bottom: 30px;
+  padding: 25px;
   h2 {
     text-align: center;
     color: #00ccff;
@@ -101,18 +102,33 @@ hr {
   margin-right: 60px;
   margin-bottom: 30px;
 }
-
 .testimonial {
   vertical-align: center;
 }
-
 .videos {
   padding-left: 30px;
 }
+@media (max-width: 450px) {
+  .videos {
+    padding-left:0px;
+    iframe {
+      max-width: 100%;
+    }
+  }
+}
+.testimonials {
+  padding-bottom: 200px;
+}
+@media (max-width: 374px) {
+  .testimonial-image1 {
+    margin-right: 100%;
+  }
+  .testimonial-image2 {
+    margin-right: 100%;
+  }
+}
 
 .signup-btn1 {
-  position: absolute;
-  right: 30px;
   background-color: #00ccff;
   border: none;
 }

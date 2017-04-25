@@ -21,10 +21,6 @@
     <%= f.label :password_confirmation %>
     <%= f.password_field :password_confirmation, class:"form-control" %>
   </div>
-  <div class="form-group">
-    <p><b>Select a program:</b></p>
-    <%= f.collection_select :program_id, @programs, :id, :strf_dates, :prompt => true %>
-  </div>
   <div class="form-group text-center">
     <%= f.submit 'Signup', class:"btn btn-primary signup-btn2" %>
   </div>

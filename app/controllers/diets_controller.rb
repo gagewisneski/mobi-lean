@@ -1,5 +1,6 @@
 class DietsController < ApplicationController
   before_action :authenticate_user!
+  before_action :active_program?
 
   def index
     # here is the information on the diet
@@ -24,7 +25,6 @@ class DietsController < ApplicationController
   end
 
   def new
-    # daily form to log your diet
   end
 
   def create
@@ -48,7 +48,8 @@ class DietsController < ApplicationController
 
   def edit
     @user = User.find(current_user.id)
-    @diets = Diet.where(user_id: @user.id).order(:day)
+    @program = Program.find_by(active: true)
+    @diets = Diet.where(user_id: @user.id, program_id: @program.id).order(:day)
   end
 
   def update

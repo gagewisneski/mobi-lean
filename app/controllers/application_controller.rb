@@ -21,7 +21,7 @@ class ApplicationController < ActionController::Base
   end
 
   def admin?
-    unless current_user.email == ENV['ADMIN_EMAIL1'] || ENV['ADMIN_EMAIL2']
+    unless current_user.id == 1 || current_user.id == 2
       redirect_to '/'
       flash[:danger] = "You aren't an admin!"
     end

@@ -16,8 +16,10 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      @user.send_activation_email
-      flash[:success] = 'Please check your email to activate your account.'
+      # @user.send_activation_email
+      # flash[:success] = 'Please check your email to activate your account.'
+      session[:user_id] = @user.id
+      flash[:success] = 'You have successfully signed up!'
       redirect_to '/'
     else
       # flash[:warning] = @user.errors.full_messages.join(', ')

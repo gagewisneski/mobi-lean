@@ -37,12 +37,12 @@ class ApplicationController < ActionController::Base
         end
       end
       if active.zero?
+        flash[:warning] = 'You need to sign up for a program'
         redirect_to '/'
-        flash[:warning] = "Your program isn't active"
       end
     elsif current_user
+      flash[:warning] = "Your program isn't active"
       redirect_to '/'
-      flash[:warning] = 'You need to sign up for a program'
     end
   end
 end

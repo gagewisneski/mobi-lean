@@ -9,13 +9,13 @@ class SessionsController < ApplicationController
     @user = User.find_by(email: params[:email])
 
     if @user && @user.authenticate(params[:password])
-      if @user.activated
-        session[:user_id] = @user.id
-        flash[:success] = 'You are now logged in'
-        redirect_to '/'
-      else
-        flash[:warning] = 'Account not activated. Check your email for the activation link.'
-      end
+      # if @user.activated
+      session[:user_id] = @user.id
+      flash[:success] = 'You are now logged in'
+      redirect_to '/'
+      # else
+      #   flash[:warning] = 'Account not activated. Check your email for the activation link.'
+      # end
     else
       flash[:warning] = 'Wrong login information'
       render :new

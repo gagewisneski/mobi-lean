@@ -21,7 +21,7 @@ class ApplicationController < ActionController::Base
   end
 
   def admin?
-    unless current_user.email == ENV['ADMIN_EMAIL1'] || ENV['ADMIN_EMAIL2']
+    unless current_user.id == 1 || current_user.id == 2
       redirect_to '/'
       flash[:danger] = "You aren't an admin!"
     end
@@ -29,19 +29,18 @@ class ApplicationController < ActionController::Base
 
   def active_program?
     if current_user.programs
-      programs = current_user.programs
       active = 0
-      programs.each do |program|
+      current_user.programs.each do |program|
         if program.active
           active += 1
         end
       end
       if active.zero?
-        flash[:warning] = 'You need to sign up for a program'
+        flash[:warning] = "Your program isn't active"
         redirect_to '/'
       end
     elsif current_user
-      flash[:warning] = "Your program isn't active"
+      flash[:warning] = 'You need to sign up for a program'
       redirect_to '/'
     end
   end

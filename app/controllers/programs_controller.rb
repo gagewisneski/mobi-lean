@@ -38,6 +38,10 @@ class ProgramsController < ApplicationController
   def destroy
     program = Program.find(params[:id])
     program.destroy
+    users_programs = UsersProgram.where(program_id: params[:id])
+    users_programs.each do |user_p|
+      user_p.destroy
+    end
     redirect_to '/programs'
     flash[:success] = 'Program Deleted'
   end

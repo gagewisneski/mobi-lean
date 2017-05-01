@@ -15,15 +15,20 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    if @user.save
-      # @user.send_activation_email
-      # flash[:success] = 'Please check your email to activate your account.'
-      session[:user_id] = @user.id
-      flash[:success] = 'You have successfully signed up!'
-      redirect_to '/'
+    if params[:user][:password].length > 7
+      if @user.save
+        # @user.send_activation_email
+        # flash[:success] = 'Please check your email to activate your account.'
+        session[:user_id] = @user.id
+        flash[:success] = 'You have successfully signed up!'
+        redirect_to '/'
+      else
+        # flash[:warning] = @user.errors.full_messages.join(', ')
+        flash[:warning] = 'Your email is already in use or invalid'
+        render :new
+      end
     else
-      # flash[:warning] = @user.errors.full_messages.join(', ')
-      flash[:warning] = 'Something went wrong'
+      flash[:warning] = 'Your password needs to be at least 8 characters'
       render :new
     end
   end

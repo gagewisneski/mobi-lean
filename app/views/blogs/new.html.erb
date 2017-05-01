@@ -1,0 +1,13 @@
+<h1>Create a new Blog Post</h1>
+<p>In order to save a blog with different paragraphs you can either copy and paste parapraphs or you can add three spaces where you would usually put a return.</p>
+
+<%= form_tag '/blogs', method: :post do %>
+  <%= label_tag :title %>
+  <%= text_field_tag :title, nil, class:"form-control" %><br>
+  <%= label_tag :text %>
+  <%= text_area_tag :text, nil, class:"form-control" %><br>
+  <%= submit_tag 'Save' %>
+
+<% end %>
+
+<%= link_to 'Back', "/blogs", class:"btn btn-primary" %>

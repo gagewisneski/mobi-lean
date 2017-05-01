@@ -1,30 +1,35 @@
 <h3 class="text-center"> Signup </h3>
 <hr>
-<%= form_for :user, url: {action: "create"}, method: "post" do |f| %>
-  <div class="form-group">
-    <%= f.label :first_name %>
-    <%= f.text_field :first_name, class:"form-control" %>
-  </div>
-  <div class="form-group">
-    <%= f.label :last_name %>
-    <%= f.text_field :last_name, class:"form-control" %>
-  </div>
-  <div class="form-group">
-    <%= f.label :email %>
-    <%= f.text_field :email, class:"form-control" %>
-  </div>
-  <div class="form-group">
-    <%= f.label :password %>
-    <%= f.password_field :password, class:"form-control" %>
-  </div>
-  <div class="form-group">
-    <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation, class:"form-control" %>
-  </div>
-  <div class="form-group text-center">
-    <%= f.submit 'Signup', class:"btn btn-primary signup-btn2" %>
-  </div>
-<% end %>
+<center>
+  <%= form_for :user, url: {action: "create"}, method: "post" do |f| %>
+    <div class="form-group">
+      <%= f.label :first_name %>
+      <%= f.text_field :first_name, class:"form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :last_name %>
+      <%= f.text_field :last_name, class:"form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :email %>
+      <%= f.text_field :email, class:"form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :password %>
+      <%= f.password_field :password, class:"form-control" %>
+    </div>
+    <p style="color:#a0a0a0;">Password must be at least 8 characters</p>
+    <div class="form-group">
+      <%= f.label :password_confirmation %>
+      <%= f.password_field :password_confirmation, class:"form-control" %>
+    </div>
+    <div class="form-group text-center">
+      <%= f.submit 'Signup', class:"btn btn-primary signup-btn2" %>
+    </div>
+  <% end %>
+</center>
+
+<hr>
 
 
 

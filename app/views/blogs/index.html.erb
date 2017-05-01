@@ -1,0 +1,29 @@
+<h1 class="page-head">Mark's Blog</h1>
+<% if current_user.admin %>
+  <center><%= link_to 'New Blog Post', "/blogs/new", class:"btn btn-primary" %></center>
+<% end %>
+
+<% @blogs.each do |blog| %>
+  <hr>
+  <a href="/blogs/<%=blog.id%>" class="blog-index">
+    <% @count += 1 %>
+    <% if @count % 2 == 0 %>
+      <div class="light-div container">
+    <% else %>
+      <div class="dark-div container">
+    <% end %>
+      <h2><%= blog.title %></h2>
+      <% if blog.text.length > 200 %>
+        <p><%= [blog.text[0,200],'(continued)'].join('... ') %></p>
+      <% else %>
+        <p><%= blog.text %></p>
+      <% end %>
+      <% if current_user.admin %>
+        <%= link_to 'Edit', "/blogs/#{blog.id}/edit", class:"btn btn-info" %>
+        <%= link_to 'Delete', "/blogs/#{blog.id}", class:"btn btn-danger", :method => :delete %>
+      <% end %>
+    </div>
+  </a>
+<% end %>
+
+<hr>

@@ -9,9 +9,17 @@ class User < ApplicationRecord
 
   validates :first_name, :last_name, :email, :password_digest, presence: true
   validates :email, uniqueness: true
+  validates_format_of :email, with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
 
   before_save   :downcase_email
   before_create :create_activation_digest
+
+
+  def admin
+    if id == 1 || id == 2
+      return true
+    end
+  end
 
   def self.new_token
     SecureRandom.urlsafe_base64

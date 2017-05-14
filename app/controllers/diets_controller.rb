@@ -48,12 +48,15 @@ class DietsController < ApplicationController
 
   def edit
     @user = User.find(current_user.id)
-    @program = Program.find_by(active: true)
-    if @program
-      @diets = Diet.where(user_id: @user.id, program_id: @program.id).order(:day)
-    else
-      redirect_to '/'
-      flash[:warning] = 'There are no active programs'
+    programs = @user.programs.where(active: true).order(:id)
+    @program = Program.find(params[:id])
+    @diets = Diet.where(user_id: @user.id, program_id: params[:id]).order(:day)
+    program_index = programs.index(@program)
+    unless programs[program_index] == programs[-1]
+      @next = programs[program_index + 1]
+    end
+    unless programs[program_index] == programs[0]
+      @previous = programs[program_index - 1]
     end
   end
 

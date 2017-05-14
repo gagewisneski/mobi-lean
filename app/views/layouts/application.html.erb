@@ -26,15 +26,18 @@
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
-            <% unless current_user %>
-              <li><a class="nav-link" href="/users/new">Signup</a></li>
-              <li><a class="nav-link" href="/login">Login</a></li>
-            <% else %>
+            <% if current_user && current_user.active_diet %>
               <li class="nav-link"><a href="/diets/mobi_meals">Mobi-Meals</a></li>
               <li class="nav-link"><a href="/blogs">Mark's Blog</a></li>
               <li class="nav-link"><a href="/diets">Diet Information</a></li>
-              <li class="nav-link"><a href="/diets/edit">Log Your Diet</a></li>
+              <li class="nav-link"><a href="/diets/<%= current_user.active_diet %>/edit">Log Your Diet</a></li>
               <li><%= link_to "Log out", "/logout", class:"nav-link", method: :delete %></li>
+            <% elsif current_user %>
+              <li class="nav-link"><a href="/programs">Programs</a></li>
+              <li><%= link_to "Log out", "/logout", class:"nav-link", method: :delete %></li>
+            <% else %>
+              <li><a class="nav-link" href="/users/new">Signup</a></li>
+              <li><a class="nav-link" href="/login">Login</a></li>
             <% end %>
           </ul>
         </div>

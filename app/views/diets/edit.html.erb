@@ -1,4 +1,18 @@
-<h3>Log your diet:</h3>
+<h3>Log your diet: <%= "#{@program.start_date} - #{@program.end_date}" %></h3>
+
+<div class="row">
+  <div class="col-sm-6">
+  <% if @previous %>
+    <%= link_to "< #{@previous.start_date} - #{@previous.end_date}", "/diets/#{@previous.id}/edit", class:"dark-link" %>
+  <% end %>
+  </div>
+  <div class="col-sm-6 next-link">
+  <% if @next %>
+    <%= link_to "#{@next.start_date} - #{@next.end_date} >", "/diets/#{@next.id}/edit", class:"dark-link next-link" %>
+  <% end %>
+  </div>
+</div>
+
 <% @diets.each do |diet| %>
   <hr>
   <% if diet.day%2 == 0 %>
@@ -183,3 +197,19 @@
     })
   </script>
 <% end %>
+
+<br>
+<br>
+
+<div class="row">
+  <div class="col-sm-6">
+  <% if @previous %>
+    <%= link_to "< #{@previous.start_date} - #{@previous.end_date}", "/diets/#{@previous.id}/edit", class:"dark-link" %>
+  <% end %>
+  </div>
+  <div class="col-sm-6 next-link">
+  <% if @next %>
+    <%= link_to "#{@next.start_date} - #{@next.end_date} >", "/diets/#{@next.id}/edit", class:"dark-link next-link" %>
+  <% end %>
+  </div>
+</div>

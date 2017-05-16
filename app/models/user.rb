@@ -21,6 +21,12 @@ class User < ApplicationRecord
     end
   end
 
+  def active_diet
+    if programs.where(active: true).first
+      programs.where(active: true).order(:id).first.id
+    end
+  end
+
   def self.new_token
     SecureRandom.urlsafe_base64
   end

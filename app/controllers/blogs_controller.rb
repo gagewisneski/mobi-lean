@@ -1,7 +1,7 @@
 class BlogsController < ApplicationController
   before_action :admin?, except: [:index, :show]
   before_action :authenticate_user!, only: [:index, :show]
-  before_action :active_program?, only: [:index, :show]
+  before_action :active_program?, if: :admin?, only: [:index, :show]
 
   def index
     @blogs = Blog.all.order(:id)

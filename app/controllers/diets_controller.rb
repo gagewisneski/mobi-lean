@@ -1,6 +1,6 @@
 class DietsController < ApplicationController
   before_action :authenticate_user!
-  before_action :active_program?
+  before_action :active_program?, if: :admin?, except: :edit
 
   def index
     # here is the information on the diet
@@ -48,8 +48,16 @@ class DietsController < ApplicationController
 
   def edit
     @user = User.find(current_user.id)
-    @program = Program.find_by(active: true)
-    @diets = Diet.where(user_id: @user.id, program_id: @program.id).order(:day)
+    programs = @user.programs.where(active: true).order(:id)
+    @program = Program.find(params[:id])
+    @diets = Diet.where(user_id: @user.id, program_id: params[:id]).order(:day)
+    program_index = programs.index(@program)
+    unless programs[program_index] == programs[-1]
+      @next = programs[program_index + 1]
+    end
+    unless programs[program_index] == programs[0]
+      @previous = programs[program_index - 1]
+    end
   end
 
   def update

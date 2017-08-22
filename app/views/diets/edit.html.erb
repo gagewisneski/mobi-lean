@@ -1,4 +1,18 @@
-<h3>Log your diet:</h3>
+<h3>Log your diet: <%= "#{@program.start_date} - #{@program.end_date}" %></h3>
+
+<div class="row">
+  <div class="col-sm-6">
+  <% if @previous %>
+    <%= link_to "< #{@previous.start_date} - #{@previous.end_date}", "/diets/#{@previous.id}/edit", class:"dark-link" %>
+  <% end %>
+  </div>
+  <div class="col-sm-6 next-link">
+  <% if @next %>
+    <%= link_to "#{@next.start_date} - #{@next.end_date} >", "/diets/#{@next.id}/edit", class:"dark-link next-link" %>
+  <% end %>
+  </div>
+</div>
+
 <% @diets.each do |diet| %>
   <hr>
   <% if diet.day%2 == 0 %>
@@ -104,7 +118,7 @@
           <br>
           <br>
           <div class="col-xs-6 col-sm-3">
-            <b>Moderations:</b><br>
+            <b>Moderations: 2 (women) 3 (men)</b><br>
             Nuts or Seeds<br>
             <%= select_tag(:nuts_and_seeds, options_for_select([[0, 0], [1, 1], [2, 2], [3, 3]], diet.nuts_and_seeds)) %>
             <br>
@@ -131,7 +145,7 @@
             <br>
           </div>
           <div class="col-xs-6 col-sm-3">
-            <b>Options:</b><br>
+            <b>Options: 2</b><br>
             Fruit<br>
             <%= select_tag(:fruit, options_for_select([[0, 0], [1, 1], [2, 2]], diet.fruit)) %>
             <br>
@@ -141,7 +155,8 @@
             Bean<br>
             <%= select_tag(:bean, options_for_select([[0, 0], [1, 1], [2, 2]], diet.bean)) %>
             <br>
-            1/2 Chocolate Bar<br>
+            <br>
+            1/2 Dark Chocolate Bar<br>
             <%= select_tag(:chocolate_bar, options_for_select([[0, 0], [1, 1]], diet.chocolate_bar)) %>
             <br>
           </div>
@@ -183,3 +198,19 @@
     })
   </script>
 <% end %>
+
+<br>
+<br>
+
+<div class="row">
+  <div class="col-sm-6">
+  <% if @previous %>
+    <%= link_to "< #{@previous.start_date} - #{@previous.end_date}", "/diets/#{@previous.id}/edit", class:"dark-link" %>
+  <% end %>
+  </div>
+  <div class="col-sm-6 next-link">
+  <% if @next %>
+    <%= link_to "#{@next.start_date} - #{@next.end_date} >", "/diets/#{@next.id}/edit", class:"dark-link next-link" %>
+  <% end %>
+  </div>
+</div>

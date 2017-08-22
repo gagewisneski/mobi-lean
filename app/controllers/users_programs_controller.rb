@@ -3,6 +3,11 @@ class UsersProgramsController < ApplicationController
 
   def new
     @program = Program.find(params[:id])
+    programs = current_user.programs.pluck(:id)
+    if programs.include?(@program.id)
+      redirect_to '/programs'
+      flash[:warning] = 'You are already in this program'
+    end
   end
 
   def create

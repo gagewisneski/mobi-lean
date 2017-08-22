@@ -1,8 +1,10 @@
 class ProgramsController < ApplicationController
-  before_action :admin?
+  before_action :admin?, except: :index
+  before_action :authenticate_user!
 
   def index
     @programs = Program.all.order(:id)
+    @count = 0
   end
 
   def new
